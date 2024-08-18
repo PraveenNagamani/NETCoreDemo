@@ -1,3 +1,5 @@
+
+@using Microsoft.AspNetCore.Mvc.TagHelpers;
 @{
 
     ViewData["Title"] = "Profile View";
@@ -22,7 +24,6 @@
     </div>
     <div class="row p-1">
       
-    using Microsoft.AspNetCore.Mvc.TagHelpers;
         <div class="col-6">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Recipient's username" name="emailid" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -62,12 +63,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var p in Model){
+            @if(Model != null){
+                @foreach(var p in Model){
                 <tr>
                     <td>@p.username</td>
-                    <td>@p.email</td>
+                    <td>@p.emailid</td>
                 </tr>
+                }
             }
+            else{
+                <td>No Records Found</td>
+                <td></td>
+            }
+            
         </tbody>
     </table>
    

@@ -74,8 +74,15 @@ public class HomeController : Controller
      public List<Profile> SearchProfile(string username)
     {
         var profiles = dbconn.Profiles.ToList();
-        
-        return profiles;
+        Profile p = null;
+        if(profiles!=null){
+             p = (from u in profiles
+                                  where u.username == username 
+                                  select u).FirstOrDefault();
+        }
+        List<Profile> resultlist = new List<Profile>();
+        resultlist.Add(p);
+        return resultlist;
     }
    
 

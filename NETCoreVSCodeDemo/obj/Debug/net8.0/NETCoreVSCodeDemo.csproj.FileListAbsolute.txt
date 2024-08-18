@@ -123,3 +123,4 @@ P:\Work\Visual Code Projects\NETCoreDemo\NETCoreVSCodeDemo\bin\Debug\net8.0\runt
 P:\Work\Visual Code Projects\NETCoreDemo\NETCoreVSCodeDemo\obj\Debug\net8.0\NETCoreVSCodeDemo.csproj.AssemblyReference.cache
 P:\Work\Visual Code Projects\NETCoreDemo\NETCoreVSCodeDemo\obj\Debug\net8.0\NETCoreV.5DEF750C.Up2Date
 P:\Work\Visual Code Projects\NETCoreDemo\NETCoreVSCodeDemo\bin\Debug\net8.0\Oracle.EntityFrameworkCore.dll
+P:\Work\Visual Code Projects\NETCoreDemo\NETCoreVSCodeDemo\obj\Debug\net8.0\NETCoreVSCodeDemo.sourcelink.json
