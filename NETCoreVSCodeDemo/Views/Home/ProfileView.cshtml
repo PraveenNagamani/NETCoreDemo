@@ -1,0 +1,75 @@
+@{
+
+    ViewData["Title"] = "Profile View";
+}
+
+@model List<Profile>
+
+
+<form method="post" enctype="multipart/form-data">
+<div class="container">
+    <div class="row p-1">
+        <h3 class="text-primary">Create Profile</h3>
+        </div>
+    <div class="row p-1">
+      
+        <div class="col-6">
+            <div class="input-group">
+                <span class="input-group-text">Name</span>
+                <input type="text" class="form-control" name="username" >
+            </div>
+        </div>
+    </div>
+    <div class="row p-1">
+      
+    using Microsoft.AspNetCore.Mvc.TagHelpers;
+        <div class="col-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Recipient's username" name="emailid" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">@@gmail.com</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row p-1">
+       
+        <div class="col-6">
+            <div class="input-group">
+                <span class="input-group-text">Upload Photo</span>
+                 <input class="form-control" type="file" id="formFile">
+             </div>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col-2"></div>
+        <div class="col-3">
+            <button class="btn btn-primary"  name="buttonid" value="btnsave" type="submit">Create</button>
+            <button class="btn btn-primary"  name="buttonid" value="btnSearch" type="submit">Search</button>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-danger"  name="buttonid" value="btnClear" type="submit">Clear</button>
+            
+        </div>
+    </div>
+</div>
+</form>
+<div id="ViewProfile">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var p in Model){
+                <tr>
+                    <td>@p.username</td>
+                    <td>@p.email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+   
+</div>
+
