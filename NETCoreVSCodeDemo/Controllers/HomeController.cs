@@ -39,6 +39,7 @@ public class HomeController : Controller
         ViewBag.jsonstring =  dbconnect.GetNoSQLBson(Mongoconnstring,"random_no_data",ref ErrMsg,Filterparams);
         _logger.LogWarning($" bson data received {ViewBag.jsonstring} ");
         _logger.LogError($" bson data received showing error {ViewBag.jsonstring} ");
+        
         return View();
     }
 
@@ -55,34 +56,46 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult ProfileView(string buttonid,string username,string emailid)
     {
-        if(buttonid == "btnsave") CreateProfile(username,emailid);
-        //if(buttonid == "btnSearch") SearchProfile(username);
-        return View(SearchProfile(username));
+        if(buttonid == "btnsave") {
+            CreateProfile(username,emailid);
+        }
+        if(ErrMsg != string.Empty){ 
+            
+            return RedirectToAction("Error");
+        }
+        else{
+            return View(SearchProfile(username));
+        }
+        
         
     }
 
 
     public bool CreateProfile(string username,string emailid)
     {
-        Profile p = new Profile(){ username=username, emailid = emailid};
-        dbconn.Add(p);
-        dbconn.SaveChanges();
-
-       return true;
+        try{
+            Profile p = new Profile(){ username=username, emailid = emailid };
+             dbconn.Add(p);
+             dbconn.SaveChanges();
+             return true;
+        }
+        catch(Exception e)
+        {
+            ErrMsg = e.GetBaseException().ToString();
+            _logger.LogCritical("CreateProfile : " + ErrMsg);
+            return false;
+        }
+        
     }
 
      public List<Profile> SearchProfile(string username)
     {
-        var profiles = dbconn.Profiles.ToList();
-        Profile p = null;
-        if(profiles!=null){
-             p = (from u in profiles
-                                  where u.username == username 
-                                  select u).FirstOrDefault();
-        }
-        List<Profile> resultlist = new List<Profile>();
-        resultlist.Add(p);
-        return resultlist;
+        var profiles = dbconn.Profiles
+        .Where(u => u.username == username)
+        .ToList();
+        return profiles;
+
+      
     }
    
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NETCoreVSCodeDemo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8fd015c24f42727186fd4ff70b3e86d1b8cf4fe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af45c21adf50793b4235e139fe91346fff413583")]
 [assembly: System.Reflection.AssemblyProductAttribute("NETCoreVSCodeDemo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NETCoreVSCodeDemo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,7 +8,7 @@ public class Profile{
     [Key]
     public required String username{get;set;}
     [NotNull]
-    [EmailAddress]
+    [EmailAddress(ErrorMessage ="invalid email format")]
     [Column("email")]
     public required String emailid{get;set;}
     [NotMapped]
